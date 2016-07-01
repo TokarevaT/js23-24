@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <title>ToDo-list</title>
     <link rel="shortcut icon" href="">
+    <link href="../css/StyleSheet1.css" rel="stylesheet" />
 </head>
 <body>
     
     <script type="text/template" id="wrapper-template">
         <div class="wrapper">
+            <div class="todolist">To-Do List</div>
             <ul class="item-list"></ul>
             <div class="controlls">
                 <input type="text" class="item-value" />
@@ -19,12 +21,17 @@
     
     <script type="text/template" id="list-template">
         <% for (var i = 0; i < data.length; i++) { %>
-        <li><%= data[i] %> <span data-value="<%= data[i] %>" class="item-delete">x</span></li>
+        <li><span class="item-show"><%= data[i] %></span><input type="text" id="<%= i %>" value="<%= data[i] %>" class="item-edit" data-value="<%= data[i] %>" style="display: none" />
+     <span data-value="<%= data[i] %>"  class="item-delete">x</span>
+    
+</li>
     <% }; %>
     </script>
-
-    <script src="../js/jquery%201.7.0.js"></script>
-    <script src="../js/tmpl.js"></script>
-    <script src="../js/script.js"></script>
+    <script data-main ="scripts/main" src="../js/require.js"></script>
+        <script src="../js/jquery%201.7.0.js"></script>
+        <script src="../js/tmpl.js"></script>
+        <script src="../js/Model.js"></script>
+        <script src="../js/View.js"></script>
+        <script src="../js/Controller.js"></script>
 </body>
 </html>
